@@ -9,6 +9,7 @@ import UpdateDestination from "../screens/destinations/UpdateDestination";
 import ListDestinations from "../screens/destinations/ListDestinations";
 import UpdateDestinationData from "../screens/destinations/UpdateDestinationData";
 import ListPackageData from "../screens/travel-packages/ListPackageData";
+import Login from "../Login";
 
 
 function AppRoutes() {
@@ -22,6 +23,7 @@ function AppRoutes() {
             <Route component = { ListDestinations } path="/ListDestinations" />
             <Route component = { UpdateDestinationData } path="/UpdateDestinationData" />
             <Route component = { ListPackageData } path="/ListPackageData" />
+            <Route component = { Login } path="/Login" />
             
         </BrowserRouter>
     );

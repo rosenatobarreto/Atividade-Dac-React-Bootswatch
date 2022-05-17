@@ -2,7 +2,9 @@ import React from "react";
 
 import "./Home.css";
 
-export default class App extends React.Component {
+import {withRouter} from 'react-router-dom';
+
+class Home extends React.Component {
     render() {
         return (
             <div className="home">
@@ -11,3 +13,5 @@ export default class App extends React.Component {
         );
     };
 }
+
+export default withRouter(Home);
