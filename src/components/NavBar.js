@@ -5,7 +5,7 @@ function Navbar(props) {
     return (
 
         <nav className="navbar navbar-expand-lg navbar-dark bg-success">
-            <div className="container">
+            <div className="container-fluid">
                 <a className="navbar-brand" href="/">Ekologic Tur</a>
                 <button className="navbar-toggler" type="button" 
                     data-bs-toggle="collapse" data-bs-target="#navbarResponsive" 
@@ -17,10 +17,14 @@ function Navbar(props) {
                 <div className="collapse navbar-collapse" id="navbarResponsive">
                     <ul className="navbar-nav">
                         <NavBarItem href="/" label="Home" />
-                        <NavBarItem href="/CreatePackage" label="Cadastrar Pacotes" />
-                        <NavBarItem href="/CreateDestination" label="Cadastrar Destino" />
+                        <NavBarItem href="/CreatePackage" label="Cadastrar Pacote" />
                         <NavBarItem href="/ListPackage" label="Listar Pacotes" />
-                        <NavBarItem href="/ListDestinations" label="Listar Destinos" />
+                        <NavBarItem href="/UpdatePackage/:id" label="Atualizar Pacote" />
+                        <NavBarItem href="/DeletePackage" label="Apagar Pacote" />
+                        <NavBarItem href="/CreateDestination" label="Cadastrar Destino" />
+                        <NavBarItem href="/ListDestination" label="Listar Destino" />
+                        <NavBarItem href="/UpdateDestination/:id" label="Atualizar Destino" />
+                        <NavBarItem href="/DeleteDestination" label="Apagar Destino" />
                     </ul>
                 </div>
             </div>

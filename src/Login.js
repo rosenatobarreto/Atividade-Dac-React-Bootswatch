@@ -32,7 +32,7 @@ export default class Login extends React.Component {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="bs-docs-section">
-                            <Card title="Criar Pacote">
+                            <Card title="Login no Sistema">
                                 <div className="col-lg-12">
                                     <div className="bs-component">
                                         <fieldset>
