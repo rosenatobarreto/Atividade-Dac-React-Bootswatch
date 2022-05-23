@@ -145,7 +145,7 @@ class ListPackage extends React.Component {
               <div className="bs-component">
                 <br />
                 {/* <h5>Resultados:</h5> */}
-                {/* <PackageTable package={this.state.pacotes} delete={this.delete} edit={this.edit}/> */}
+                <PackageTable package={this.state.pacotes} delete={this.delete} edit={this.edit}/>
                 
               </div>
             </div>
