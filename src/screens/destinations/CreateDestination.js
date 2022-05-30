@@ -5,22 +5,22 @@ import FormGroup from '../../components/FormGroup';
 import {withRouter} from 'react-router-dom';
 import axios from 'axios';
 
-class RegisterDestination extends React.Component {
+class CreateDestination extends React.Component {
 
     state = {
-        nameDestination: "",
-        locality: "",
-        destinationType: "",
-        package: 0
+        nomeDestino: "",
+        localidade: "",
+        tipoDestino: "",
+        pacoteId: 0
     }
 
     create = async () => {
         await axios.post('http://localhost:8080/api/destino',
         {
-            nomeDestino: this.state.nameDestination,
-	        localidade: this.state.locality,
-	        tipoDestino: this.state.destinationType,
-	        pacote: this.state.package
+            nomeDestino: this.state.nomeDestino,
+	        localidade: this.state.localidade,
+	        tipoDestino: this.state.tipoDestino,
+	        pacoteId: this.state.pacoteId
         }
         ).then( response => 
             {
@@ -51,23 +51,23 @@ class RegisterDestination extends React.Component {
                                         <fieldset>
                                             <FormGroup label="Nome do Destino">
                                                 <input type="text" className="form-control" placeholder="Nome do Destino" id="inputName"
-                                                    value={this.state.nameDestination} onChange={(e) => { this.setState({ nameDestination: e.target.value }) }} />
+                                                    value={this.state.nomeDestino} onChange={(e) => { this.setState({ nomeDestino: e.target.value }) }} />
                                             </FormGroup>
 
 
                                             <FormGroup label="Localidade">
                                                 <input type="text" className="form-control" placeholder="Localidade" id="inputLocality"
-                                                    value={this.state.locality} onChange={(e) => { this.setState({ locality: e.target.value }) }} />
+                                                    value={this.state.localidade} onChange={(e) => { this.setState({ localidade: e.target.value }) }} />
                                             </FormGroup>
 
                                             <FormGroup label="Tipo de Destino">
                                                 <input type="text" className="form-control" placeholder="Tipo de Destino" id="inputDestinationType"
-                                                    value={this.state.destinationType} onChange={(e) => { this.setState({ destinationType: e.target.value }) }} />
+                                                    value={this.state.tipoDestino} onChange={(e) => { this.setState({ tipoDestino: e.target.value }) }} />
                                             </FormGroup>
 
                                             <FormGroup label="Id do Pacote">
                                                 <input type="number" className="form-control" placeholder="Id do Pacote" id="inputPackage"
-                                                    value={this.state.package} onChange={(e) => { this.setState({ package: e.target.value }) }} />
+                                                    value={this.state.pacoteId} onChange={(e) => { this.setState({ pacoteId: e.target.value }) }} />
                                             </FormGroup>
                                             <br />
 
@@ -84,4 +84,4 @@ class RegisterDestination extends React.Component {
     }
 }
 
-export default withRouter(RegisterDestination);
+export default withRouter(CreateDestination);

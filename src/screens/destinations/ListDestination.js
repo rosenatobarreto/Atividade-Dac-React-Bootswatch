@@ -13,89 +13,93 @@ class ListDestination extends React.Component {
         nomeDestino: "",
         localidade: "",
         tipoDestino: "",
-        pacote: 0,
-        destinations: []
+        pacoteId: 0,
+        destinos: []
     }
 
     delete = (idDestino) => {
-        axios.delete(`http://localhost:8080/api/destino/${idDestino}`,
-        ).then(response => {
+      axios.delete(`http://localhost:8080/api/destino/${idDestino}`,
+      ).then(response => {
           this.find();
-        }
-        ).catch(error => {
+      }
+      ).catch(error => {
           console.log(error.response);
-        }
-        );
       }
-    
-      edit = (idDestino) => {
-        this.props.history.push(`/UpdateDestination/${idDestino}`);
+      );
+  }
+
+  edit = (idDestino) => {
+      this.props.history.push(`/updateUser/${idDestino}`);
+  }
+
+  find = () => {
+      var params = '?';
+
+      if (this.state.idDestino !== '') {
+          if (params !== '?') {
+              params = `${params}&`;
+          }
+
+          params = `${params}id=${this.state.idDestino}`;
       }
-    
-      find = () => {
-        var params = '?';
-    
-        if (this.state.idDestino !== '') {
+
+      if (this.state.nomeDestino !== '') {
           if (params !== '?') {
-            params = `${params})&`;
+              params = `${params}&`;
           }
-          params = `${params}idDestino=${this.state.idDestino}`;
-        }
-    
-        if (this.state.nomeDestino !== '') {
-          if (params !== '?') {
-            params = `${params}&`;
-          }
+
           params = `${params}nomeDestino=${this.state.nomeDestino}`;
-        }
-    
-        if (this.state.localidade !== '') {
-          if (params !== '?') {
-            params = `${params}&`;
-          }
-          params = `${params}localidade=${this.state.localidade}`;
-        }
-    
-        if (this.state.tipoDestino !== '') {
-          if (params !== '?') {
-            params = `${params}&`;
-          }
-          params = `${params}tipoDestino=${this.state.tipoDestino}`;
-        }
-    
-        if (this.state.pacote !== '') {
-          if (params !== '?') {
-            params = `${params}&`;
-          }
-          params = `${params}pacote=${this.state.pacote}`;
-        }
-    
-        axios.get(`http://localhost:8080/api/destino/${params}`,
-        ).then(response => {
-          const destinos = response.data;
-          this.setState({ destinos });
-          console.log(destinos);
-        }
-        ).catch(error => {
-          console.log(error.response);
-          console.log("O Destino não pode ser encontrado!");
-        }
-        );
       }
 
-    findAll = () => {
-        axios.get(`http://localhost:8080/api/destino/all`,
-        ).then(response => {
-            const destinations = response.data;
-            this.setState({ destinations });
-            console.log(destinations);
-        }
-        ).catch(error => {
-            console.log(error.response);
-        }
-        );
-    }
+      if (this.state.localidade !== '') {
+          if (params !== '?') {
+              params = `${params}&`;
+          }
 
+          params = `${params}localidade=${this.state.localidade}`;
+      }
+
+      if (this.state.tipoDestino !== '') {
+          if (params !== '?') {
+              params = `${params}&`;
+          }
+
+          params = `${params}tipoDestino=${this.state.tipoDestino}`;
+      }
+
+      if (this.state.pacoteId !== '') {
+          if (params !== '?') {
+              params = `${params}&`;
+          }
+
+          params = `${params}pacoteId=${this.state.pacoteId}`;
+      }
+
+      axios.get(`http://localhost:8080/api/destino/${params}`)
+          .then(response => {
+              const destinos = response.data;
+              this.setState({ destinos });
+              console.log(destinos);
+          }
+          ).catch(error => {
+              console.log(error.response);
+          }
+          );
+  }
+
+  findAll = () => {
+
+      axios.get(`http://localhost:8080/api/destino/all`)
+          .then(response => {
+              const destinos = response.data;
+              this.setState({ destinos });
+              console.log(destinos);
+          }
+          ).catch(error => {
+              console.log(error.response);
+          }
+          );
+  }
 
     render() {
 
@@ -130,16 +134,16 @@ class ListDestination extends React.Component {
 
                                             <FormGroup label="Pacote: *">
                                                 <input type="number" className="form-control" placeholder="Pacote" id="inputPackage"
-                                                    value={this.state.pacote} onChange={(e) => { this.setState({ pacote: e.target.value }) }} />
+                                                    value={this.state.pacoteId} onChange={(e) => { this.setState({ pacoteId: e.target.value }) }} />
                                             </FormGroup>
                                             
                                             <br />
 
                                             <button type="button" className="btn btn-success" onClick={this.find} >
-                                                <i className="pi pi-search"></i>Filtrar</button>
+                                                <i className="pi pi-search"></i> Filtrar</button>
 
                                             <button type="button" className="btn btn-search-all" onClick={this.findAll} >
-                                                <i className="pi pi-search"></i>Buscar todos</button>
+                                                <i className="pi pi-search"></i> Buscar todos</button>
 
                                             <br />
                                             
@@ -152,9 +156,8 @@ class ListDestination extends React.Component {
                                 <div className="col-md-12">
                                     <div className="bs-component">
                                         <br />
-                                        {/* <h5>Resultados:</h5> */}
-                                        {/* <p>A inserção da tabela faz desaparecer a tela toda</p> */}
-                                        {/* <DestinationTable package={this.state.destinations} delete={this.delete} edit={this.edit}/> */}
+                                        <h5>Resultados:</h5>
+                                        <DestinationTable destinos={this.state.destinos} delete={this.delete} edit={this.edit}/>
 
                                     </div>
                                 </div>

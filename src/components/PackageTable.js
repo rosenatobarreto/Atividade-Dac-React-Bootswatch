@@ -1,11 +1,10 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React from 'react';
+import React from "react";
 
-
-export default props => {
-
+export default props => { 
     const rows = props.pacotes.map( pacote => {
         return (
+            
             <tr key={pacote.idPacote}>
                 <td>{pacote.idPacote}</td>
                 <td>{pacote.nomePacote}</td>
@@ -15,18 +14,19 @@ export default props => {
                 <td>
                     <button type="button" title="Editar" className="btn btn-success"
                         onClick={e => props.edit(pacote.idPacote)}>
-                        <i className="pi pi-pencil"></i>
                     </button>
                     <button type="button" title="Excluir" className="btn btn-danger"
                         onClick={e => props.delete(pacote.idPacote)}>
-                        <i className="pi pi-trash"></i>
                     </button>
                 </td>
             </tr>
-        );
-    });
+    
+        )
+    }
+    );
 
-    return (
+    return ( 
+        
         <table className="table table-hover">
             <thread>
                 <tr>
@@ -42,8 +42,8 @@ export default props => {
             </tbody>
     </table>
  
-    );
-
-    
-
+ 
+ );
+ 
+ 
 }

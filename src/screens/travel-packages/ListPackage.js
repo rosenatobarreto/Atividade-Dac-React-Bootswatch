@@ -130,40 +130,32 @@ class ListPackage extends React.Component {
                 <br />
 
                 <button type="button" className="btn btn-success" onClick={this.find} >
-                  <i className="pi pi-search"></i>Filtrar</button>
+                  <i className="pi pi-search"></i> Filtrar</button>
 
                 <button type="button" className="btn btn-search-all" onClick={this.findAll} >
-                  <i className="pi pi-search"></i>Buscar todos</button>
+                  <i className="pi pi-search"></i> Buscar todos</button>
 
                 <br />
 
               </div>
             </div>
           </div>
-          <div className="row">
-            <div className="col-md-12">
-              <div className="bs-component">
-                <br />
-                {/* <h5>Resultados:</h5> */}
-                <PackageTable package={this.state.pacotes} delete={this.delete} edit={this.edit}/>
-                
-              </div>
-            </div>
-          </div>
+
 
         </Card>
-        <div className="container">
+
         <div className="row">
-            <div className="col-md-6">
-              <div className="bs-component">
-                <br />
-                {/* <h5>Resultados:</h5> */}
-                {/* <PackageTable package={this.state.pacotes} delete={this.delete} edit={this.edit}/> */}
-                
-              </div>
+          <div className="col-md-12">
+            <div className="bs-component">
+              <br />
+              <h5>Resultados:</h5>
+              <PackageTable pacotes={this.state.pacotes} delete={this.delete} edit={this.edit} />
+
+
             </div>
           </div>
         </div>
+
 
 
       </div>
