@@ -8,10 +8,10 @@ export default props => {
         return (
             <tr key={destino.idDestino}>
                 <td>{destino.idDestino}</td>    
-                <td>{destino.nomedestino}</td>    
+                <td>{destino.nomeDestino}</td>    
                 <td>{destino.localidade}</td>    
                 <td>{destino.tipoDestino}</td>    
-                <td>{destino.pacote}</td>  
+                <td>{destino.pacoteId}</td>  
                 <td>
                     <button type="button" title="Editar" className="btn btn-success"
                     onClick={e => props.edit(destino.idDestino)}>
